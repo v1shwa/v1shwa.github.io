@@ -144,10 +144,11 @@ namespace :site do
     sh "bundle exec jekyll build"
 
     # Commit and push to github
-    sha = `git log`.match(/[a-z0-9]{40}/)[0]
+    # sha = `git log`.match(/[a-z0-9]{40}/)[0]
+    commit_msg=`git log -1 --pretty=%B`
     Dir.chdir(CONFIG["destination"]) do
       sh "git add --all ."
-      sh "git commit -m 'Updating to #{USERNAME}/#{REPO}@#{sha}.'"
+      sh "git commit -m 'Updating to #{commit_msg}.'"
       sh "git push --quiet origin #{DESTINATION_BRANCH}"
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
     end
