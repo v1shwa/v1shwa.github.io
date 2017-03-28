@@ -148,7 +148,7 @@ namespace :site do
     commit_msg=`git log -1 --pretty=%B`
     Dir.chdir(CONFIG["destination"]) do
       sh "git add --all ."
-      sh "git commit -m 'Updating to #{commit_msg}.'"
+      sh "git commit -m '#{commit_msg}.'"
       sh "git push --quiet origin #{DESTINATION_BRANCH}"
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
     end
