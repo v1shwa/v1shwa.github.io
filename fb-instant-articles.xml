@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title></title>
+    <link>https://vishwa.be</link>
+    <description>
+      
+    </description>
+    
+        
+            <item>
+                <title>Hello</title>
+                <link>https://vishwa.be/2017/03/hello</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>This is the first post of the blog!</p>
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/2017/03/hello</guid>
+                <description>
+                    
+                    Just getting started with github pages &amp; Jekyll.
+                    
+                </description>
+                <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
+                <author>Vishwa</author>
+            </item>
+        
+    
+  </channel>
+</rss>
