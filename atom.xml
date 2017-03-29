@@ -4,7 +4,7 @@
  <title>The blog of Quick ML</title>
  <link href="http://quickml.github.io/atom.xml" rel="self"/>
  <link href="http://quickml.github.io"/>
- <updated>2017-03-29T12:49:00+00:00</updated>
+ <updated>2017-03-29T14:34:44+00:00</updated>
  <id>http://quickml.github.io</id>
  <author>
    <name>Quick ML</name>
@@ -14,10 +14,10 @@
  
  <entry>
    <title>Hello</title>
-   <link href="http://quickml.github.io/jekyll/github/2017/03/29/getting-started.html"/>
+   <link href="http://quickml.github.io/ml/2017/03/29/getting-started.html"/>
    <updated>2017-03-29T00:00:00+00:00</updated>
-   <id>http://quickml.github.io/jekyll/github/2017/03/29/getting-started</id>
-   <content type="html">&lt;p&gt;This blog will have the rough notes of several ML &amp;amp; NLP courses I take online.&lt;/p&gt;
+   <id>http://quickml.github.io/ml/2017/03/29/getting-started</id>
+   <content type="html">&lt;p&gt;This blog will have the rough notes of ML &amp;amp; NLP courses I take online.&lt;/p&gt;
 </content>
  </entry>
  
