@@ -1,1 +1,1 @@
-Sitemap: https://vishwa.be/sitemap.xml
+Sitemap: /sitemap.xml

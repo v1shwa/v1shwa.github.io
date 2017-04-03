@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title></title>
-    <link>https://vishwa.be</link>
+    <link></link>
     <description>
       
     </description>
@@ -10,7 +10,7 @@
         
             <item>
                 <title>GPG Primer</title>
-                <link>https://vishwa.be/2017/03/gpg-primer</link>
+                <link>/2017/03/gpg-primer</link>
                 <content:encoded>
                     <![CDATA[
                     <p>GPG (GNU Privacy Guard) is a free and open-source implementation of PGP. GPG can be used to encrypt and the sign the sensitive data such as password, emails and files. In this post, we will discuss the quickest way to install, create, export, import, encrypt &amp; decrypt files &amp; text data using GPG.</p>
@@ -139,7 +139,7 @@
         
             <item>
                 <title>Hello</title>
-                <link>https://vishwa.be/2017/03/hello</link>
+                <link>/2017/03/hello</link>
                 <content:encoded>
                     <![CDATA[
                     <p>This is the first post of the blog!</p>
