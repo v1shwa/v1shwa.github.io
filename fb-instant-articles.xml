@@ -9,6 +9,135 @@
     
         
             <item>
+                <title>GPG Primer</title>
+                <link>https://vishwa.be/2017/03/gpg-primer</link>
+                <content:encoded>
+                    <![CDATA[
+                    <p>GPG (GNU Privacy Guard) is a free and open-source implementation of PGP. GPG can be used to encrypt and the sign the sensitive data such as password, emails and files. In this post, we will discuss the quickest way to install, create, export, import, encrypt &amp; decrypt files &amp; text data using GPG.</p>
+
+<h2 id="how-gpg-works">How GPG works:</h2>
+<ul>
+  <li>GPG is an implementation of public key cryptography — which has a pair of keys called public key and private key.</li>
+  <li>Public key is shared with others which can be used only to encrypt the data.</li>
+  <li>Private key is not shared &amp; is known* *only by owner. Private key is used to decrypt the file that is encrypted using its public key.</li>
+</ul>
+
+<h2 id="installing-gpg">Installing GPG:</h2>
+<ul>
+  <li>Windows: <a href="https://www.gpg4win.org/download.html">https://www.gpg4win.org/download.html</a></li>
+  <li>Mac: <code class="highlighter-rouge">brew install gnupg</code></li>
+  <li>RHEL/CentOS: <code class="highlighter-rouge">yum install gnupg</code></li>
+  <li>Debian/Ubuntu: <code class="highlighter-rouge">apt-get install gnupg</code></li>
+</ul>
+
+<h2 id="creating-your-gpg-key-pair">Creating your GPG key pair:</h2>
+<ul>
+  <li>
+    <p>To generate a new key pair, use the following command. This generates a new key pair (public &amp; private) key and stores the data a keyring.</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  gpg --gen-key
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>For better security, when prompted</p>
+    <ul>
+      <li>choose <em>RSA key</em></li>
+      <li>set the key size to <em>4096</em></li>
+      <li>Choose a very long &amp; non-obvious password</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="exporting-the-public-key">Exporting the public key:</h2>
+<ul>
+  <li>
+    <p>To save your public key to a file, run:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  gpg --export --armor you@example.com &gt; mykey.asc
+</code></pre>
+    </div>
+  </li>
+  <li>This exports your public (not your secret private key) to <em>mykey.asc</em> file on your computer. This key can be shared safely with people who wants to send you secret data.</li>
+  <li>
+    <p>💡 This public key can also be uploaded to common key server using</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  gpg --send-keys PUB-KEY-ID
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<h2 id="importing-public-key">Importing public key:</h2>
+<ul>
+  <li>If you have a public key received from someone, you can use it to encrypt the data on your computer &amp; send it to them. To do so, you need to import the key locally to your machine.</li>
+  <li>
+    <p>To import a key file called <em>mykey.asc</em>, run:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  gpg --import --armor mykey.asc
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>💡 If you have received a public key-id instead of  key itself, you can import it from the server using</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  gpg --recv-keys PUB-KEY-ID
+</code></pre>
+    </div>
+  </li>
+</ul>
+
+<h2 id="encrypting-a-document">Encrypting a document:</h2>
+<ul>
+  <li>
+    <p>To encrypt a document, run:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  gpg --recipient sender_email@example.com --encrypt file_to_encrypt.doc
+</code></pre>
+    </div>
+  </li>
+  <li>This will create a file named <strong>file_to_encrypt.doc.gpg</strong> ,which you can share it with the recipient.</li>
+  <li>💡 You can use GPG to encrypt files that can be decrypted only by you.</li>
+</ul>
+
+<h2 id="decrypting--a-document">Decrypting  a document:</h2>
+<ul>
+  <li>
+    <p>If you have a file (say,  <em>myfile.doc.gpg</em>) that was encrypted using your public key, you can decrypt it using:</p>
+
+    <div class="highlighter-rouge"><pre class="highlight"><code>  gpg --decrypt myfile.doc.gpg &gt; myfile.doc
+</code></pre>
+    </div>
+  </li>
+  <li>
+    <p>The decrypted file will be saved as <strong>myfile.doc</strong> on your computer.</p>
+  </li>
+</ul>
+
+<h2 id="other-useful-commands">Other Useful commands:</h2>
+<ul>
+  <li>To list all public keys on your computer      : <code class="highlighter-rouge">gpg --list-keys</code></li>
+  <li>To list all secret keys on your computer      : <code class="highlighter-rouge">gpg --list-secret-keys</code></li>
+  <li>To delete a public key from your computer : <code class="highlighter-rouge">gpg --delete-key email@example.com</code></li>
+  <li>To delete a secret key from your computer : <code class="highlighter-rouge">gpg --delete-secret-key you@example.com</code></li>
+</ul>
+
+
+                    ]]>
+                </content:encoded>
+                <guid isPermaLink="false">/2017/03/gpg-primer</guid>
+                <description>
+                    
+                    Maintaining pretty good privacy with GPG
+                    
+                </description>
+                <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
+                <author>{"name"=>"Vishwa", "url"=>"https://twitter.com/v1shwa", "email"=>"v1shwa@yahoo.com"}</author>
+            </item>
+        
+    
+        
+            <item>
                 <title>Hello</title>
                 <link>https://vishwa.be/2017/03/hello</link>
                 <content:encoded>
@@ -24,7 +153,7 @@
                     
                 </description>
                 <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
-                <author>Vishwa</author>
+                <author>{"name"=>"Vishwa", "url"=>"https://twitter.com/v1shwa", "email"=>"v1shwa@yahoo.com"}</author>
             </item>
         
     

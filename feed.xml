@@ -7,6 +7,123 @@
     <atom:link href="https://vishwa.be/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>GPG Primer</title>
+        <description>&lt;p&gt;GPG (GNU Privacy Guard) is a free and open-source implementation of PGP. GPG can be used to encrypt and the sign the sensitive data such as password, emails and files. In this post, we will discuss the quickest way to install, create, export, import, encrypt &amp;amp; decrypt files &amp;amp; text data using GPG.&lt;/p&gt;
+
+&lt;h2 id=&quot;how-gpg-works&quot;&gt;How GPG works:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;GPG is an implementation of public key cryptography — which has a pair of keys called public key and private key.&lt;/li&gt;
+  &lt;li&gt;Public key is shared with others which can be used only to encrypt the data.&lt;/li&gt;
+  &lt;li&gt;Private key is not shared &amp;amp; is known* *only by owner. Private key is used to decrypt the file that is encrypted using its public key.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;installing-gpg&quot;&gt;Installing GPG:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Windows: &lt;a href=&quot;https://www.gpg4win.org/download.html&quot;&gt;https://www.gpg4win.org/download.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Mac: &lt;code class=&quot;highlighter-rouge&quot;&gt;brew install gnupg&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;RHEL/CentOS: &lt;code class=&quot;highlighter-rouge&quot;&gt;yum install gnupg&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Debian/Ubuntu: &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install gnupg&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;creating-your-gpg-key-pair&quot;&gt;Creating your GPG key pair:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;To generate a new key pair, use the following command. This generates a new key pair (public &amp;amp; private) key and stores the data a keyring.&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  gpg --gen-key
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;For better security, when prompted&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;choose &lt;em&gt;RSA key&lt;/em&gt;&lt;/li&gt;
+      &lt;li&gt;set the key size to &lt;em&gt;4096&lt;/em&gt;&lt;/li&gt;
+      &lt;li&gt;Choose a very long &amp;amp; non-obvious password&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;exporting-the-public-key&quot;&gt;Exporting the public key:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;To save your public key to a file, run:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  gpg --export --armor you@example.com &amp;gt; mykey.asc
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;This exports your public (not your secret private key) to &lt;em&gt;mykey.asc&lt;/em&gt; file on your computer. This key can be shared safely with people who wants to send you secret data.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;💡 This public key can also be uploaded to common key server using&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  gpg --send-keys PUB-KEY-ID
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;importing-public-key&quot;&gt;Importing public key:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;If you have a public key received from someone, you can use it to encrypt the data on your computer &amp;amp; send it to them. To do so, you need to import the key locally to your machine.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;To import a key file called &lt;em&gt;mykey.asc&lt;/em&gt;, run:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  gpg --import --armor mykey.asc
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;💡 If you have received a public key-id instead of  key itself, you can import it from the server using&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  gpg --recv-keys PUB-KEY-ID
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;encrypting-a-document&quot;&gt;Encrypting a document:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;To encrypt a document, run:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  gpg --recipient sender_email@example.com --encrypt file_to_encrypt.doc
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;This will create a file named &lt;strong&gt;file_to_encrypt.doc.gpg&lt;/strong&gt; ,which you can share it with the recipient.&lt;/li&gt;
+  &lt;li&gt;💡 You can use GPG to encrypt files that can be decrypted only by you.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;decrypting--a-document&quot;&gt;Decrypting  a document:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;If you have a file (say,  &lt;em&gt;myfile.doc.gpg&lt;/em&gt;) that was encrypted using your public key, you can decrypt it using:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  gpg --decrypt myfile.doc.gpg &amp;gt; myfile.doc
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The decrypted file will be saved as &lt;strong&gt;myfile.doc&lt;/strong&gt; on your computer.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;other-useful-commands&quot;&gt;Other Useful commands:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;To list all public keys on your computer      : &lt;code class=&quot;highlighter-rouge&quot;&gt;gpg --list-keys&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;To list all secret keys on your computer      : &lt;code class=&quot;highlighter-rouge&quot;&gt;gpg --list-secret-keys&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;To delete a public key from your computer : &lt;code class=&quot;highlighter-rouge&quot;&gt;gpg --delete-key email@example.com&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;To delete a secret key from your computer : &lt;code class=&quot;highlighter-rouge&quot;&gt;gpg --delete-secret-key you@example.com&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
+        <link>https://vishwa.be/2017/03/gpg-primer</link>
+        <guid isPermaLink="true">https://vishwa.be/2017/03/gpg-primer</guid>
+      </item>
+    
+      <item>
         <title>Hello</title>
         <description>&lt;p&gt;This is the first post of the blog!&lt;/p&gt;
 </description>
