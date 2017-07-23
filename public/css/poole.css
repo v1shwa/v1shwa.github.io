@@ -48,7 +48,8 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: "Calendas Plus", "Crimson Text", "Hoefler Text", "Georgia", serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -342,6 +343,7 @@ tbody tr:nth-child(odd) th {
 .page-title,
 .post-title {
   margin-top: 0;
+  font-size: 1.8rem;
 }
 
 /* Meta data line below post title */
