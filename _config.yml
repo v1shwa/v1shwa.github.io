@@ -97,6 +97,10 @@ whitelist:
   - jekyll-feed
 
 
+# Jekyll Stuff
+source: .
+destination: _site
+
 # Front matter defaults
 defaults:
   # _pages
