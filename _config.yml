@@ -1,0 +1,123 @@
+# Site Settings
+encoding                 : "utf-8"
+locale                   : "en"
+title                    : "Vishwa"
+title_separator          : "-"
+description              : ""
+favicon                  : "/assets/images/favicon2.png"
+logo                     : "/assets/images/favicon2.png"
+lang                     : 'en_US'
+avatar                   : false
+url                      : "https://v1shwa.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+baseurl                  : "" # the subpath of your site, e.g. "/blog" leave blank if no subpath
+
+# Site Author
+author:
+  name                   : "Vishwa" # appears in the footer and atom feed
+
+comments                 : true # set it to false to disable comments
+disqus:
+  shortname              : "v1shwa-github-io" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+
+atom_feed:
+  path                   : "/feed.xml"
+
+og_image                 : "" # Open Graph/Twitter default site image, optional for seo and social sharing
+
+# Social sharing
+twitter:
+  username               : "v1shwa" # optional, for social sharing
+
+github:
+  username               : "v1shwa"
+
+# Analytics
+analytics:
+  google:
+    tracking_id          : # add your google tracking id here
+
+# Reading Files
+include:
+  - _pages
+# Files excluded from Jekyll builds
+exclude:
+- README.md
+- LICENSE
+- Gemfile
+- Gemfile.lock
+- TODO
+
+
+# Conversion
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false # true will re-build only pages that have changed. Could break the site.
+
+
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+
+# Outputting
+permalink: /blog/:title/
+paginate: 5 # amount of posts to show
+paginate_path: "/blog/page:num/"
+timezone: "Asia/Kolkata" # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+
+collections:
+  projects:
+    output: true
+    permalink: /:collection/:title/
+
+# Plugins
+gems:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-sitemap
+
+# mimic GitHub Pages with --safe
+whitelist:
+  - jekyll-paginate
+  - jekyll-feed
+
+
+# Front matter defaults
+defaults:
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+      comments: false
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+      share: true
+  # _projects
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: page
+      share: false

@@ -1,0 +1,10 @@
+---
+layout: page
+title: "Projects"
+permalink: /projects/
+subtitle: Collection of few interesting projects I've worked on.
+---
+
+{% for post in site.projects reversed %}
+  {% include post-entry.html %}
+{% endfor %}
