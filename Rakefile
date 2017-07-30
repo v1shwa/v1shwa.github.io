@@ -85,7 +85,7 @@ DESTINATION_BRANCH = "master"
 ############
 desc 'Push the code to Github'
 task :push do
-  puts "## Push the code to #{SOURCE_BRANCH} branch"
+  puts "## Pushing the code to #{SOURCE_BRANCH} branch"
   system "git push -u origin #{SOURCE_BRANCH}"
 end
 
