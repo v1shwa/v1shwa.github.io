@@ -132,10 +132,15 @@ namespace :site do
 
     # Commit and push to github
     # sha = `git log`.match(/[a-z0-9]{40}/)[0]
-    commit_msg=`git log -1 --pretty=%B`
+    
+    d = DateTime.now
+    date_now = d.strftime("%d/%m/%Y %H:%M")
+    orig_commit_msg=`git log -1 --pretty=%B`
+    msg_commit = date_now + " - " + orig_commit_msg
+
     Dir.chdir(CONFIG["destination"]) do
       sh "git add --all ."
-      sh "git commit -m '#{commit_msg}.'"
+      sh "git commit -m '#{msg_commit}.'"
       sh "git push --quiet origin #{DESTINATION_BRANCH}"
       puts "Pushed updated branch #{DESTINATION_BRANCH} to GitHub Pages"
     end
