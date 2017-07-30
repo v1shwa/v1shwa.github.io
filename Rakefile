@@ -24,12 +24,8 @@ task :post, :title do |t, args|
     date: #{Time.new.strftime('%Y-%m-%d %H:%M')}
     categories:
     ---
-
     EOS
   end
-
-# Uncomment the line below if you want the post to automatically open in your default text editor
-#  system ("#{ENV['EDITOR']} #{filename}")
 end
 
 # usage: rake draft['my new draft']
@@ -51,14 +47,13 @@ task :draft, :title do |t, args|
     date: #{Time.new.strftime('%Y-%m-%d %H:%M')}
     categories:
     ---
-
     EOS
   end
-
-# Uncomment the line below if you want the draft to automatically open in your default text editor
-# system ("#{ENV['EDITOR']} #{filename}")
 end
 
+#######################
+### Preview site
+#######################
 desc 'preview the site with drafts'
 task :preview do
   puts "## Generating site"
@@ -66,38 +61,30 @@ task :preview do
   system "jekyll serve --watch --drafts"
 end
 
+
+
+#######################
+### List all the rake tasks available
+#######################
 desc 'list tasks'
 task :list do
   puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).join(', ')}"
   puts "(type rake -T for more detail)\n\n"
 end
- 
-#############################################################################
-#
-# Site tasks
-#
-#############################################################################
 
+
+# Site settings
 CONFIG = YAML.load(File.read('_config.yml'))
-USERNAME = CONFIG["username"] || ENV['GIT_NAME']
+USERNAME = CONFIG["github"]["username"] || ENV['GIT_NAME']
 REPO = CONFIG["repo"] || "#{USERNAME}.github.io"
 
-# Determine source and destination branch
-# User or organization: core -> master
-# Project: master -> gh-pages
-# Name of source branch for user/organization defaults to "core"
-if REPO == "#{USERNAME}.github.io"
-  SOURCE_BRANCH = CONFIG['branch'] || "core"
-  DESTINATION_BRANCH = "master"
-else
-  SOURCE_BRANCH = "master"
-  DESTINATION_BRANCH = "gh-pages"
-end
+SOURCE_BRANCH = "base"
+DESTINATION_BRANCH = "master"
 
 
 def check_destination
   unless Dir.exist? CONFIG["destination"]
-    sh "git clone https://#{ENV['GIT_NAME']}:#{ENV['GH_TOKEN']}@github.com/#{USERNAME}/#{REPO}.git #{CONFIG["destination"]}"
+    sh "git clone https://#{ENV["GIT_NAME"]}:#{ENV["GH_TOKEN"]}@github.com/#{USERNAME}/#{REPO}.git #{CONFIG["destination"]}"
   end
 end
 

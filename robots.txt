@@ -1,1 +1,1 @@
-Sitemap: /sitemap.xml
+Sitemap: https://v1shwa.github.io/sitemap.xml

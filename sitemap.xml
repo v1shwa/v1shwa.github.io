@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>/2017/03/hello</loc>
-<lastmod>2017-03-15T00:00:00+00:00</lastmod>
+<loc>https://v1shwa.github.io/blog/setting-up-reverse-proxy-with-nginx/</loc>
+<lastmod>2017-07-24T00:00:00+05:30</lastmod>
 </url>
 <url>
-<loc>/2017/03/gpg-primer</loc>
-<lastmod>2017-03-15T00:00:00+00:00</lastmod>
+<loc>https://v1shwa.github.io/about/</loc>
 </url>
 <url>
-<loc>/404.html</loc>
+<loc>https://v1shwa.github.io/blog/</loc>
 </url>
 <url>
-<loc>/about/</loc>
+<loc>https://v1shwa.github.io/</loc>
 </url>
 <url>
-<loc>/</loc>
+<loc>https://v1shwa.github.io/projects/</loc>
 </url>
 </urlset>
