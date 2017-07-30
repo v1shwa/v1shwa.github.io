@@ -78,7 +78,7 @@ CONFIG = YAML.load(File.read('_config.yml'))
 USERNAME = CONFIG["github"]["username"] || ENV['GIT_NAME']
 REPO = CONFIG["repo"] || "#{USERNAME}.github.io"
 
-SOURCE_BRANCH = "core"
+SOURCE_BRANCH = "base"
 DESTINATION_BRANCH = "master"
 
 
