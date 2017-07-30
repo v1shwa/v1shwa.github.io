@@ -62,7 +62,6 @@ task :preview do
 end
 
 
-
 #######################
 ### List all the rake tasks available
 #######################
@@ -81,6 +80,14 @@ REPO = CONFIG["repo"] || "#{USERNAME}.github.io"
 SOURCE_BRANCH = "base"
 DESTINATION_BRANCH = "master"
 
+############
+## Push the site to github
+############
+desc 'Push the code to Github'
+task :push do
+  puts "## Pushing the code to #{SOURCE_BRANCH} branch"
+  system "git push -u origin #{SOURCE_BRANCH}"
+end
 
 def check_destination
   unless Dir.exist? CONFIG["destination"]
