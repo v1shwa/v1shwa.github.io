@@ -138,12 +138,12 @@ namespace :site do
     sh "bundle exec jekyll build"
 
     # Commit and push to github
-    # sha = `git log`.match(/[a-z0-9]{40}/)[0]
     
+    orig_commit_sha = `git log`.match(/[a-z0-9]{40}/)[0]
     d = DateTime.now
     date_now = d.strftime("%d/%m/%Y %H:%M")
     orig_commit_msg=`git log -1 --pretty=%B`
-    msg_commit = date_now + " - " + orig_commit_msg
+    msg_commit = date_now + " - " + orig_commit_sha
 
     Dir.chdir(CONFIG["destination"]) do
       sh "git add --all ."
