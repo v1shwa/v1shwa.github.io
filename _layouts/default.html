@@ -33,9 +33,9 @@
     <div class="page__footer">
       <footer>
         <div class="page__footer-copyright">
-          <a href="https://github.com/{{ site.githuv.username }}" target="_blank" title="Github"><i class="fa fa-github-square fa-2x" aria-hidden="true"></i></a>
-          <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" title="Twitter"><i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i></a>
-          <a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | absolute_url }}{% endif %}" target="_blank"><i class="fa fa-rss-square fa-2x" aria-hidden="true"></i></a>
+          <a href="https://github.com/{{ site.githuv.username }}" target="_blank" title="Github"><i class="fa fa-github-square fa-2x" style="color: #000000" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" title="Twitter"><i class="fa fa-twitter-square fa-2x" style="color: #1da1f3;" aria-hidden="true"></i></a>
+          <a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | absolute_url }}{% endif %}" target="_blank"><i class="fa fa-rss-square fa-2x" style="color: #fb9e3a;" aria-hidden="true"></i></a>
           <i>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</i>
         </div>
       </footer>
