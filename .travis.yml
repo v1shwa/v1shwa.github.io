@@ -1,0 +1,9 @@
+language: ruby
+script: bundle exec rake site:deploy --quiet
+rvm: 2.3.3
+group: stable
+dist: precise
+os: linux
+env:
+  global:
+    secure: jw3k55y/5vybnTWq/9zbulL6N7JGtmXPNQHuCUMdBOO+xRTb4nO6rxm+2XVpxy7I9kaREjYqQYOQnmlwAeznXU0kdpLfdjfkymVESbupx3cSIoQppiOq6OEOn3mO03EyB1UQBxauxDs532L26k/+qN563LBXGHVDgLkwhghh6oet1iAJuJrlN2YwqW87hKJNofitjzWThdud99Gom71uNNCn1V+qyJMeHQdrocr+GhI7uKDvIsw0DZwZ5M/+3bPYCenA0QLQX5fyE6HsUcAxn/mJOtkrNVG7stNZqkJ+ve7d+4ne4hOhmchtowB4bdzkeGMYbAGoQrsmAkzjDAa4F41SyAB8Oer/BuvNcQcik1GmXcP7rJOdyumV+cRxh55V/5LhzWnZNcI4Ye+uXzvOyqnYADgQBap6PP7nBZcIc8K/rnrYE/VV0GWfREWipTaTxuH+fl5Ym6/D0MhD0w5Shcv2au6YjN3OSBeHD8SqnTYgOIU4+PIWewBBsZQCGHRGG4yRhmsLBj8oSMYDQMurhXUzIPFEBzE8BjuSGk9PmaYvmfioyAHsELc85k2LwYKNSnSeArKxxJxR10OvIU/9Yvt3lxNv5AYgOIjxzbmNgHHyPFMGLGiCUKjFmA/921quhpyQSbvyGTN4KULgw1iYbuSmYCVKMIbnqOgLfRSweEU=
