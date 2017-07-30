@@ -1,5 +1,6 @@
 ---
 title: Setting up Reverse Proxy with Nginx
+tags: [nginx]
 ---
 
 Here's a quick snippet to set up Reverse proxy with nginx.

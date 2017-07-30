@@ -4,12 +4,14 @@ locale                   : "en"
 title                    : "Vishwa"
 title_separator          : "-"
 description              : ""
-favicon                  : "/assets/images/favicon2.png"
-logo                     : "/assets/images/favicon2.png"
+favicon                  : "/assets/images/favicon.png"
+logo                     : "/assets/images/favicon.png"
 lang                     : 'en_US'
 avatar                   : false
 url                      : "https://v1shwa.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog" leave blank if no subpath
+tag_page_layout          : tag_index
+tag_page_dir             : tag
 
 # Site Author
 author:
