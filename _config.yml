@@ -36,7 +36,7 @@ github:
 # Analytics
 analytics:
   google:
-    tracking_id          : # add your google tracking id here
+    tracking_id          : "UA-71763469-3" # add your google tracking id here
 
 # Reading Files
 include:
