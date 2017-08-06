@@ -49,7 +49,7 @@
 .page__meta {
   margin: 0 0 4px;
   color: mix(#fff, $gray, 25%);
-  font-size: $type-size-5;
+  font-size: $type-size-6;
   p {
     margin: 0;
   }
@@ -57,4 +57,50 @@
   a {
     color: inherit;
   }
+}
+
+/* ==========================================================================
+   Project Page
+   ========================================================================== */
+
+.project {
+    .project__name {
+        font-weight: bold;
+        font-size: $type-size-5;
+        text-transform: uppercase;
+    }
+
+    .project__links { 
+        text-align: right;
+        padding-top: 3px;
+        a {
+          cursor: pointer;
+        }
+    }
+
+    .project__more {
+      font-size: $type-size-6;
+      text-align: center;
+      font-weight: 400;
+    }
+
+    dt {
+      float: left;
+    }    
+
+  @media (min-width: $medium) {
+    dd {
+        margin-left: 15%;
+    }
+
+    dt {
+        float: left;
+        width: 12%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        clear: left;
+    }
+  }
+
 }

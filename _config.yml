@@ -118,10 +118,3 @@ defaults:
       layout: post
       comments: true
       share: true
-  # _projects
-  - scope:
-      path: ""
-      type: projects
-    values:
-      layout: page
-      share: false

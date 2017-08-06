@@ -5,6 +5,20 @@ permalink: /projects/
 subtitle: Collection of few interesting projects I've worked on.
 ---
 
-{% for post in site.projects reversed %}
-  {% include post-entry.html %}
-{% endfor %}
+<div class="project">
+    {% for project in site.data.projects %}
+    <dt></dt>
+    <dd class="project__name">{{ project.name }}</dd>
+    <dt class="project__links">
+        {% for link in project.links %}
+            <a href="{{ link.url }}" target="_blank" title="{{ link.title }}"><i class="fa {{ link.icon }} fa-fw" aria-hidden="true" style="color: #000000;"></i></a>
+        {% endfor %}
+    </dt>
+    </dt> 
+    <dd class="project__description">{{ project.description }}</dd>
+    <hr>
+    {% endfor %}
+
+    <p class="mute project__more"><em>For more projects, vist  <a href="https://github.com/v1shwa/">my github page</a></em></p>
+</div>
+

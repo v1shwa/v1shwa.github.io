@@ -1,0 +1,40 @@
+
+- name: Mac Playbook
+  description: An Ansible playbook to install and configure almost everything I need & use on my mac making it ready for work & life.
+  links:
+    - url: https://github.com/v1shwa/mac-playbook
+      icon: fa-github
+      title: Github URL
+    - url: https://github.com/v1shwa/mac-playbook/blob/master/LICENSE
+      icon: fa-balance-scale
+      title: License
+
+- name: Document Similarity
+  description: Document Similarity is module built on top of gensim that can calculate the similarity distance between documents using trained word2vec models.
+  links: 
+    - url: https://github.com/v1shwa/document-similarity
+      icon: fa-github
+      title: Github URL
+    - url: https://github.com/v1shwa/document-similarity/blob/master/LICENSE
+      icon: fa-balance-scale
+      title: License
+
+- name: ML Devkit
+  description: A docker image containing jupyter notebook and all the tools required for data analysis and machine learning with python.
+  links: 
+    - url: https://github.com/v1shwa/ml-devkit
+      icon: fa-github
+      title: Github URL
+    - url: https://github.com/v1shwa/ml-devkit/blob/master/LICENSE
+      icon: fa-balance-scale
+      title: License
+
+- name: Audiobox
+  description: A ready-made, batteries-included Docker image with essentials for speech/audio synthesis.
+  links: 
+    - url: https://github.com/v1shwa/audiobox-docker
+      icon: fa-github
+      title: Github URL
+    - url: https://github.com/v1shwa/audiobox-docker/blob/master/LICENSE
+      icon: fa-balance-scale
+      title: License
