@@ -88,19 +88,18 @@
       float: left;
     }    
 
-  @media (min-width: $medium) {
-    dd {
-        margin-left: 15%;
-    }
+   @media (min-width: $medium) {
+      dd {
+          margin-left: 15%;
+      }
 
-    dt {
-        float: left;
-        width: 12%;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        clear: left;
-    }
-  }
-
+      dt {
+          float: left;
+          width: 12%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          clear: left;
+      }
+   }
 }
