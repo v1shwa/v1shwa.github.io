@@ -19,7 +19,7 @@ author:
 
 comments                 : true # set it to false to disable comments
 disqus:
-  shortname              : "vishwa" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+  shortname              : "v1shwa-github-io" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
 
 atom_feed:
   path                   : "/feed.xml"
