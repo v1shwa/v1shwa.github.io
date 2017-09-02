@@ -1,6 +1,7 @@
 ---
 title: Choosing a port for your new TCP server
 tags: [linux]
+author: Vishwa
 ---
 
 Every time I create a new server, One of most painful tasks I need to worry about is choosing the right port for the server. Although every internet system has a space for 65535 TCP ports, with the increasing amount of applications, most of the ports are already occupied either [officially](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml){:target="_blank"} or [unofficially](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers){:target="_blank"}. 

@@ -2,6 +2,7 @@
 layout: page
 title: "About Me"
 permalink: /about/
+description: I'm Vishwa. Software Engineer.
 subtitle: 
 ---
 Hi, My name is Vishwa. I am a passionate developer interested in backend development, unix operating systems and a lot of other stuff.

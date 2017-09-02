@@ -3,7 +3,7 @@ encoding                 : "utf-8"
 locale                   : "en"
 title                    : "Vishwa"
 title_separator          : "-"
-description              : ""
+description              : "Homepage and blog of Vishwa."
 favicon                  : "/assets/images/favicon.png"
 logo                     : "/assets/images/favicon.png"
 lang                     : 'en_US'
