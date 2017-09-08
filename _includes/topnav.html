@@ -11,12 +11,14 @@
 
   <div class="topnav__content">
     <h3 class="site__name">{{ site.title }}</h3>
-    {% if site.description %}
+    {% comment %}
+    {% if site.description  %}
       <p class="site__bio">
         {{ site.description }}
       </p>
     {% endif %}
-    
+    {% endcomment %}
+
     <nav>
       <ul id="navigation" class="links slimmenu">
         {% for link in site.data.navigation.main %}
