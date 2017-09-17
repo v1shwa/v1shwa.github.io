@@ -23,7 +23,9 @@
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | absolute_url }}">
     <link rel="shortcut icon" type="image/x-icon" href="{{ site.favicon | absolute_url }}">
     <meta http-equiv="cleartype" content="on">
-
+    <script type="text/javascript" async
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
   </head>
 
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
@@ -45,6 +47,7 @@
     <script src="{{ '/assets/js/plugins/rrssb.min.js' | absolute_url }}"></script>
     <script src="{{ '/assets/js/slimmenu.js' | absolute_url }}"></script>
     <script src="{{ '/assets/js/main.js' | absolute_url }}"></script>
+
     {% include analytics.html %}
 
   </body>
