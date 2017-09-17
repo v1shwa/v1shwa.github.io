@@ -14,12 +14,12 @@
 
 
 
-<title>Choosing a port for your new TCP server - Vishwa</title>
+<title>Understanding the math behind Linear Regression - Vishwa</title>
 
 
 
 
-<meta name="description" content="Every time I create a new server, One of most painful tasks I need to worry about is choosing the right port for the server. Although every internet system has a space for 65535 TCP ports, with the increasing amount of applications, most of the ports are already occupied either officially or unofficially.">
+<meta name="description" content="Basics and Implementation of Linear Regression in Python">
 
 
 
@@ -27,22 +27,22 @@
 
 <meta property="og:locale" content="en">
 <meta property="og:site_name" content="Vishwa">
-<meta property="og:title" content="Choosing a port for your new TCP server">
+<meta property="og:title" content="Understanding the math behind Linear Regression">
 
 
-  <link rel="canonical" href="https://v1shwa.github.io/blog/generating-a-random-port-linux/">
-  <meta property="og:url" content="https://v1shwa.github.io/blog/generating-a-random-port-linux/">
+  <link rel="canonical" href="https://v1shwa.github.io/blog/understanding-the-math-of-linear-regression/">
+  <meta property="og:url" content="https://v1shwa.github.io/blog/understanding-the-math-of-linear-regression/">
 
 
 
-  <meta property="og:description" content="Every time I create a new server, One of most painful tasks I need to worry about is choosing the right port for the server. Although every internet system has a space for 65535 TCP ports, with the increasing amount of applications, most of the ports are already occupied either officially or unofficially.">
+  <meta property="og:description" content="Basics and Implementation of Linear Regression in Python">
 
 
 
   <meta name="twitter:site" content="@v1shwa">
-  <meta name="twitter:title" content="Choosing a port for your new TCP server">
-  <meta name="twitter:description" content="Every time I create a new server, One of most painful tasks I need to worry about is choosing the right port for the server. Although every internet system has a space for 65535 TCP ports, with the increasing amount of applications, most of the ports are already occupied either officially or unofficially.">
-  <meta name="twitter:url" content="https://v1shwa.github.io/blog/generating-a-random-port-linux/">
+  <meta name="twitter:title" content="Understanding the math behind Linear Regression">
+  <meta name="twitter:description" content="Basics and Implementation of Linear Regression in Python">
+  <meta name="twitter:url" content="https://v1shwa.github.io/blog/understanding-the-math-of-linear-regression/">
 
   <meta name="twitter:card" content="summary">
   
@@ -57,7 +57,7 @@
 
 
   <meta property="og:type" content="article">
-  <meta property="article:published_time" content="2017-08-13T00:00:00+05:30">
+  <meta property="article:published_time" content="2017-09-16T00:00:00+05:30">
 
 
 
@@ -151,7 +151,7 @@
     
       
       
-        <li class="current">Choosing a port for your new TCP server</li>
+        <li class="current">Understanding the math behind Linear Regression</li>
       
     
   </ol>
@@ -159,17 +159,17 @@
 
 <div id="main" role="main">
   <article class="post" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Choosing a port for your new TCP server">
-    <meta itemprop="description" content="Every time I create a new server, One of most painful tasks I need to worry about is choosing the right port for the server. Although every internet system has a space for 65535 TCP ports, with the increasing amount of applications, most of the ports are already occupied either officially or unofficially.">
-    <meta itemprop="datePublished" content="August 13, 2017">
+    <meta itemprop="headline" content="Understanding the math behind Linear Regression">
+    <meta itemprop="description" content="Inside the Post">
+    <meta itemprop="datePublished" content="September 16, 2017">
     
   
     <div class="post__inner-wrap">
-        <h1 class="post__title" itemprop="headline">Choosing a port for your new TCP server
+        <h1 class="post__title" itemprop="headline">Understanding the math behind Linear Regression
 </h1>
         
         
-        <p class="post__meta">Published on <time datetime="2017-08-13T00:00:00+05:30">August 13, 2017 </time></p>
+        <p class="post__meta">Published on <time datetime="2017-09-16T00:00:00+05:30">September 16, 2017 </time></p>
         
       </header>
         
@@ -177,33 +177,112 @@
       <span class="v-tags">
         
           
-          <a href="/tag/linux" title="View all posts tagged linux"><code class="highligher-rouge"><nobr>#linux</nobr></code>&nbsp;</a>
+          <a href="/tag/machine-learning" title="View all posts tagged machine-learning"><code class="highligher-rouge"><nobr>#machine-learning</nobr></code>&nbsp;</a>
+        
+          
+          <a href="/tag/rawml" title="View all posts tagged rawml"><code class="highligher-rouge"><nobr>#rawml</nobr></code>&nbsp;</a>
         
       </span>
 
       <section class="post__content" itemprop="text">
-        <p>Every time I create a new server, One of most painful tasks I need to worry about is choosing the right port for the server. Although every internet system has a space for 65535 TCP ports, with the increasing amount of applications, most of the ports are already occupied either <a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml" target="_blank">officially</a> or <a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers" target="_blank">unofficially</a>.</p>
-
-<p>That leaves us with the question of how do you come up with a <em>free</em> port number for our server. Well, before we jump right into the solution, here are some ground rules we can follow:</p>
-
-<ul>
-  <li>The port numbers for 1-1024 are reserved for processes running with root privileges on linux.</li>
-  <li>Of the remaining ports, IANA officially recommends the range 49152-65535 for ephemeral ports while some of the unix &amp; windows systems use the range 1024-5000 for the same. <sup><a href="#footnote1">1</a></sup></li>
-  <li>While it is <em>mostly</em> safe to use to ports ranging from 5000-49152, given the fact that most well-known services choose to go with smaller port numbers that range around 8000, it’s a good port range to avoid.</li>
-  <li>That’s leaves you with a range of ports between 10000 and 49152.</li>
+        <h2 class="no_toc" id="inside-the-post">Inside the Post</h2>
+<ul id="markdown-toc">
+  <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a></li>
+  <li><a href="#what-is-linear-regression" id="markdown-toc-what-is-linear-regression">What is Linear Regression</a></li>
+  <li><a href="#the-perfect-regression-line" id="markdown-toc-the-perfect-regression-line">The Perfect Regression Line</a></li>
+  <li><a href="#derivation-of-least-squares-estimates" id="markdown-toc-derivation-of-least-squares-estimates">Derivation of Least squares estimates</a></li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
 </ul>
 
-<p>Now, coming to the solution, here’s a little bash snippet that helps you identify a <em>random</em> <em>unused</em> port on your machine.</p>
+<h2 id="introduction">Introduction</h2>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>curl -sSL https://git.io/v7Hch | bash
-</code></pre>
-</div>
+<p>Linear regression is an almost <a href="https://en.wikipedia.org/wiki/Regression_analysis#History">200 year old</a> simple but one of most useful statistical models. It is used to analyze the relationship between two or more continous variables in a dataset.</p>
 
-<p>If you’re curious to know what’s happening inside the snippet above, here’s the link to the <a href="https://github.com/v1shwa/random-port-generator" target="_blank">repo</a> on github.</p>
+<p>The goal of this article is to understand what linear regression is &amp; all the math that powers the model.</p>
 
-<p><strong>Footnotes:</strong></p>
+<h2 id="what-is-linear-regression">What is Linear Regression</h2>
 
-<p><small id="footnote1"> 1 : <a href="http://www.ncftp.com/ncftpd/doc/misc/ephemeral_ports.html" target="_blank">The Ephemeral Port Range </a></small></p>
+<p>Linear Regression is a statistical method that attempts to model a relationship between two or more variables by fitting a <em>line</em> along the observed data. This <em>line</em> is called as the <strong>regression line</strong>.</p>
+
+<p>As for every linear equation, the equation for the regression line can be written as,</p>
+
+<script type="math/tex; mode=display">y = b_0 + b_1X</script>
+
+<p>where,</p>
+
+<ul>
+  <li><script type="math/tex">y</script> is called as the <strong>dependent</strong> or <strong>output/target</strong> variable,</li>
+  <li><script type="math/tex">X</script> is called as <strong>independent</strong> variable or <strong>predictor</strong> or <strong>input</strong> variable,</li>
+  <li><script type="math/tex">b_0, b_1</script> are the unknown constants called as <em>Y-intercept</em> and <em>slope</em> respectively, which we’ll have to estimate.</li>
+</ul>
+
+<p><strong><u>Note</u></strong>: If we have more than 1 predictors in the model, then this would be called <strong>Multiple Linear Regression</strong> and it’s equation would be like this,</p>
+
+<p>​   <script type="math/tex">y = b_0 + b_1X_1 + b_2X_2 + b_3X_3 + ...</script></p>
+
+<h2 id="the-perfect-regression-line">The Perfect Regression Line</h2>
+
+<p><img src="https://i.imgur.com/qlc2Hu4.png" alt="" /></p>
+
+<p>In practical world, it’s nearly impossible to find the ideal regression line that covers all the data points (see picture above). So, instead, what we do is, identify the best equation that covers all the points with least errors . We call this line, the <strong>best fitting line</strong>.</p>
+
+<p>To calculate the error, we take the sum of difference between the <em>estimated target values <script type="math/tex">(\hat{y_i})</script></em> and <em>actual target values<script type="math/tex">(y_i)</script></em> for all points in the dataset. To normalize the negative errors, we’ll consider the squares of the errors. Now, we can formulate the error as,</p>
+
+<p>​               <script type="math/tex">Error(E) = \sum(\hat{y_i}-y_i)^2</script></p>
+
+<p>This technique is called the <strong>Least Squares technique</strong>.</p>
+
+<p>By the definition of linear regression, we can replace the <script type="math/tex">y_i</script> with <script type="math/tex">b_0 + b_1X_i</script>,</p>
+
+<p>​               <script type="math/tex">E = \sum(\hat{y_i} - (b_0 + b_1X_i))</script></p>
+
+<p>​                   <em>or</em></p>
+
+<p>​               <script type="math/tex">E =  \sum(\hat{y_i} - b_0 - b_1X_i)</script></p>
+
+<p>Now, our  immediate aim is to identify the ideal values for the parameters <script type="math/tex">b_0</script> and  <script type="math/tex">b_1</script>, such that the value of <em>Error</em> function is minimized as much as possible. Let’s derive that.</p>
+
+<h2 id="derivation-of-least-squares-estimates">Derivation of Least squares estimates</h2>
+
+<p>What’s the first thing that comes to our mind when someone says maxima/minima of a function? — you guessed it — <em>Partial Derivates</em>.</p>
+
+<p>To find the relative minima of a function, let’s take the derivate of <em>Error function</em> on both the parameters <script type="math/tex">b_0</script> &amp; <script type="math/tex">b_1</script> and equate them to zero.</p>
+
+<p><em>Note: For the sake of simplicity, I’ll represent the <script type="math/tex">\sum_{i=1}^{n}</script> as just <script type="math/tex">\sum</script> from hereon.</em></p>
+
+<p><strong>(i) Derivative of E on <script type="math/tex">b_1</script>:</strong></p>
+
+<script type="math/tex; mode=display">=> \frac{\partial{E}}{\partial{b_1}} \equiv 2 \sum(y_i - b_0 - b_1X_i)(-1) = 0 \\[1cm]
+=> \sum(y_i) - \sum(b_0) - \sum(b_1X_i) = 0 \\[1cm]
+=>  b_0 = \frac{\sum(y_i) - b_1\sum(X_i)}{n}    \longrightarrow (i)</script>
+
+<p><strong>(ii) Derivative of E on <script type="math/tex">b_0</script>:</strong></p>
+
+<script type="math/tex; mode=display">=> \frac{\partial{E}}{\partial{b_0}} \equiv 2 \sum(y_i - b_0 - b_1X_i)(X_i) = 0 \\[1cm]
+
+=> \sum(X_iy_i) - b_0\sum(X_i) - b_1\sum(X_i^2) = 0 \\[1cm]
+
+Substituting\ the\ value\ of\ b_0\ from\ (i),  \\[1cm]
+=> \sum(X_iy_i) - \frac{\sum(y_i) - b_1\sum(X_i)}{n}\sum(X_i) - b_1\sum(X_i^2) = 0 \\[1cm]
+
+Multiplying\ with\ ‘n‘\ on\ both\ sides, and\ rearranging\ things\ a\ bit,\\[1cm]
+
+=> (n-1) \sum(X_iy_i) - (n-1)b_1\sum(X_i^2) = 0\\[1cm]
+
+Dividing\ with\ (n-1)\ on\ both\ sides\ and\ solving\ for\ b_1,\ we\ get,\\[1cm]
+
+ {b_1 = \frac{\sum(X_iy_i)}{\sum(X_i^2)} = \frac{\bar{xy}}{\bar{x^2}}} \\[1cm]</script>
+
+<p>Now, by substituting this value of <script type="math/tex">b_1</script> in the <script type="math/tex">(i)</script>, we can get the value of <script type="math/tex">b_0</script>,</p>
+
+<script type="math/tex; mode=display">b_0 = \frac{\sum(y_i) - \frac{\sum(X_iy_i)}{\sum(X_i^2)}\sum(X_i)}{n} \\[1cm]
+    
+{b_0 = \frac{(\sum(X_i)\sum(y_i)) - \sum(X_iy_i)}{n \sum(X_i)} = \frac{\bar{x}\bar{y}- \bar{xy}}{n\bar{x}}}</script>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Thus, the <em>best fitting line</em> in simple linear regression is <script type="math/tex">y = b_0 + b_1X</script>,  where, 
+<script type="math/tex">b_1 = \frac{\bar{xy}}{\bar{x^2}}</script> and <script type="math/tex">b_0 = \frac{\bar{x}\bar{y}- \bar{xy}}{n\bar{x}}</script> .</p>
 
         
         <section class="page__share">
@@ -211,7 +290,7 @@
     <li class="rrssb-facebook">
       <!--  Replace with your URL. For best results, make sure you page has the proper FB Open Graph tags in header:
             https://developers.facebook.com/docs/opengraph/howtos/maximizing-distribution-media-content/ -->
-      <a href="https://www.facebook.com/sharer/sharer.php?u=https://v1shwa.github.io/blog/generating-a-random-port-linux/" class="popup">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://v1shwa.github.io/blog/understanding-the-math-of-linear-regression/" class="popup">
         <span class="rrssb-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29"><path d="M26.4 0H2.6C1.714 0 0 1.715 0 2.6v23.8c0 .884 1.715 2.6 2.6 2.6h12.393V17.988h-3.996v-3.98h3.997v-3.062c0-3.746 2.835-5.97 6.177-5.97 1.6 0 2.444.173 2.845.226v3.792H21.18c-1.817 0-2.156.9-2.156 2.168v2.847h5.045l-.66 3.978h-4.386V29H26.4c.884 0 2.6-1.716 2.6-2.6V2.6c0-.885-1.716-2.6-2.6-2.6z"/></svg>
         </span>
@@ -221,7 +300,7 @@
 
     <li class="rrssb-twitter">
       <!-- Replace href with your Meta and URL information  -->
-      <a href="https://twitter.com/intent/tweet?via=v1shwa&text=Choosing a port for your new TCP server https://v1shwa.github.io/blog/generating-a-random-port-linux/"
+      <a href="https://twitter.com/intent/tweet?via=v1shwa&text=Understanding the math behind Linear Regression https://v1shwa.github.io/blog/understanding-the-math-of-linear-regression/"
       class="popup">
         <span class="rrssb-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><path d="M24.253 8.756C24.69 17.08 18.297 24.182 9.97 24.62a15.093 15.093 0 0 1-8.86-2.32c2.702.18 5.375-.648 7.507-2.32a5.417 5.417 0 0 1-4.49-3.64c.802.13 1.62.077 2.4-.154a5.416 5.416 0 0 1-4.412-5.11 5.43 5.43 0 0 0 2.168.387A5.416 5.416 0 0 1 2.89 4.498a15.09 15.09 0 0 0 10.913 5.573 5.185 5.185 0 0 1 3.434-6.48 5.18 5.18 0 0 1 5.546 1.682 9.076 9.076 0 0 0 3.33-1.317 5.038 5.038 0 0 1-2.4 2.942 9.068 9.068 0 0 0 3.02-.85 5.05 5.05 0 0 1-2.48 2.71z"/></svg></span>
         <span class="rrssb-text">Twitter</span>
@@ -230,7 +309,7 @@
 
     <li class="rrssb-linkedin">
       <!-- Replace href with your meta and URL information -->
-      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://v1shwa.github.io/blog/generating-a-random-port-linux/" class="popup">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://v1shwa.github.io/blog/understanding-the-math-of-linear-regression/" class="popup">
         <span class="rrssb-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28"><path d="M25.424 15.887v8.447h-4.896v-7.882c0-1.98-.71-3.33-2.48-3.33-1.354 0-2.158.91-2.514 1.802-.13.315-.162.753-.162 1.194v8.216h-4.9s.067-13.35 0-14.73h4.9v2.087c-.01.017-.023.033-.033.05h.032v-.05c.65-1.002 1.812-2.435 4.414-2.435 3.222 0 5.638 2.106 5.638 6.632zM5.348 2.5c-1.676 0-2.772 1.093-2.772 2.54 0 1.42 1.066 2.538 2.717 2.546h.032c1.71 0 2.77-1.132 2.77-2.546C8.056 3.593 7.02 2.5 5.344 2.5h.005zm-2.48 21.834h4.896V9.604H2.867v14.73z"/></svg>
         </span>
@@ -240,7 +319,7 @@
 
     <li class="rrssb-googleplus">
       <!-- Replace href with your meta and URL information.  -->
-      <a href="https://plus.google.com/share?url=https://v1shwa.github.io/blog/generating-a-random-port-linux/" class="popup">
+      <a href="https://plus.google.com/share?url=https://v1shwa.github.io/blog/understanding-the-math-of-linear-regression/" class="popup">
         <span class="rrssb-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M21 8.29h-1.95v2.6h-2.6v1.82h2.6v2.6H21v-2.6h2.6v-1.885H21V8.29zM7.614 10.306v2.925h3.9c-.26 1.69-1.755 2.925-3.9 2.925-2.34 0-4.29-2.016-4.29-4.354s1.885-4.353 4.29-4.353c1.104 0 2.014.326 2.794 1.105l2.08-2.08c-1.3-1.17-2.924-1.883-4.874-1.883C3.65 4.586.4 7.835.4 11.8s3.25 7.212 7.214 7.212c4.224 0 6.953-2.988 6.953-7.082 0-.52-.065-1.104-.13-1.624H7.614z"/></svg>            </span>
         <span class="rrssb-text">Google+</span>
@@ -261,7 +340,7 @@
     <div id="disqus_thread"></div>
     <script type="text/javascript">
       var disqus_shortname = 'v1shwa-github-io';
-      var disqus_url = 'https://v1shwa.github.io//blog/generating-a-random-port-linux/';
+      var disqus_url = 'https://v1shwa.github.io//blog/understanding-the-math-of-linear-regression/';
 
       /* * * DON'T EDIT BELOW THIS LINE * * */
       (function() {

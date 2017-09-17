@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_US"><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="https://v1shwa.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://v1shwa.github.io/" rel="alternate" type="text/html" hreflang="en_US" /><updated>2017-09-08T19:51:06+05:30</updated><id>https://v1shwa.github.io/</id><title type="html">Vishwa</title><subtitle>Homepage and blog of Vishwa.</subtitle><author><name>Vishwa</name></author><entry><title type="html">Choosing a port for your new TCP server</title><link href="https://v1shwa.github.io/blog/generating-a-random-port-linux/" rel="alternate" type="text/html" title="Choosing a port for your new TCP server" /><published>2017-08-13T00:00:00+05:30</published><updated>2017-08-13T00:00:00+05:30</updated><id>https://v1shwa.github.io/blog/generating-a-random-port-linux</id><content type="html" xml:base="https://v1shwa.github.io/blog/generating-a-random-port-linux/">&lt;p&gt;Every time I create a new server, One of most painful tasks I need to worry about is choosing the right port for the server. Although every internet system has a space for 65535 TCP ports, with the increasing amount of applications, most of the ports are already occupied either &lt;a href=&quot;https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml&quot; target=&quot;_blank&quot;&gt;officially&lt;/a&gt; or &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers&quot; target=&quot;_blank&quot;&gt;unofficially&lt;/a&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en_US"><generator uri="https://jekyllrb.com/" version="3.5.2">Jekyll</generator><link href="https://v1shwa.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://v1shwa.github.io/" rel="alternate" type="text/html" hreflang="en_US" /><updated>2017-09-17T18:33:59+05:30</updated><id>https://v1shwa.github.io/</id><title type="html">Vishwa</title><subtitle>Homepage and blog of Vishwa.</subtitle><author><name>Vishwa</name></author><entry><title type="html">Understanding the math behind Linear Regression</title><link href="https://v1shwa.github.io/blog/understanding-the-math-of-linear-regression/" rel="alternate" type="text/html" title="Understanding the math behind Linear Regression" /><published>2017-09-16T00:00:00+05:30</published><updated>2017-09-16T00:00:00+05:30</updated><id>https://v1shwa.github.io/blog/understanding-the-math-of-linear-regression</id><content type="html" xml:base="https://v1shwa.github.io/blog/understanding-the-math-of-linear-regression/">&lt;h2 class=&quot;no_toc&quot; id=&quot;inside-the-post&quot;&gt;Inside the Post&lt;/h2&gt;
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#introduction&quot; id=&quot;markdown-toc-introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#what-is-linear-regression&quot; id=&quot;markdown-toc-what-is-linear-regression&quot;&gt;What is Linear Regression&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#the-perfect-regression-line&quot; id=&quot;markdown-toc-the-perfect-regression-line&quot;&gt;The Perfect Regression Line&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#derivation-of-least-squares-estimates&quot; id=&quot;markdown-toc-derivation-of-least-squares-estimates&quot;&gt;Derivation of Least squares estimates&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conclusion&quot; id=&quot;markdown-toc-conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+&lt;p&gt;Linear regression is an almost &lt;a href=&quot;https://en.wikipedia.org/wiki/Regression_analysis#History&quot;&gt;200 year old&lt;/a&gt; simple but one of most useful statistical models. It is used to analyze the relationship between two or more continous variables in a dataset.&lt;/p&gt;
+
+&lt;p&gt;The goal of this article is to understand what linear regression is &amp;amp; all the math that powers the model.&lt;/p&gt;
+
+&lt;h2 id=&quot;what-is-linear-regression&quot;&gt;What is Linear Regression&lt;/h2&gt;
+
+&lt;p&gt;Linear Regression is a statistical method that attempts to model a relationship between two or more variables by fitting a &lt;em&gt;line&lt;/em&gt; along the observed data. This &lt;em&gt;line&lt;/em&gt; is called as the &lt;strong&gt;regression line&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;As for every linear equation, the equation for the regression line can be written as,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;y = b_0 + b_1X&lt;/script&gt;
+
+&lt;p&gt;where,&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;y&lt;/script&gt; is called as the &lt;strong&gt;dependent&lt;/strong&gt; or &lt;strong&gt;output/target&lt;/strong&gt; variable,&lt;/li&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;X&lt;/script&gt; is called as &lt;strong&gt;independent&lt;/strong&gt; variable or &lt;strong&gt;predictor&lt;/strong&gt; or &lt;strong&gt;input&lt;/strong&gt; variable,&lt;/li&gt;
+  &lt;li&gt;&lt;script type=&quot;math/tex&quot;&gt;b_0, b_1&lt;/script&gt; are the unknown constants called as &lt;em&gt;Y-intercept&lt;/em&gt; and &lt;em&gt;slope&lt;/em&gt; respectively, which we’ll have to estimate.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;u&gt;Note&lt;/u&gt;&lt;/strong&gt;: If we have more than 1 predictors in the model, then this would be called &lt;strong&gt;Multiple Linear Regression&lt;/strong&gt; and it’s equation would be like this,&lt;/p&gt;
+
+&lt;p&gt;​   &lt;script type=&quot;math/tex&quot;&gt;y = b_0 + b_1X_1 + b_2X_2 + b_3X_3 + ...&lt;/script&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;the-perfect-regression-line&quot;&gt;The Perfect Regression Line&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/qlc2Hu4.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In practical world, it’s nearly impossible to find the ideal regression line that covers all the data points (see picture above). So, instead, what we do is, identify the best equation that covers all the points with least errors . We call this line, the &lt;strong&gt;best fitting line&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;To calculate the error, we take the sum of difference between the &lt;em&gt;estimated target values &lt;script type=&quot;math/tex&quot;&gt;(\hat{y_i})&lt;/script&gt;&lt;/em&gt; and &lt;em&gt;actual target values&lt;script type=&quot;math/tex&quot;&gt;(y_i)&lt;/script&gt;&lt;/em&gt; for all points in the dataset. To normalize the negative errors, we’ll consider the squares of the errors. Now, we can formulate the error as,&lt;/p&gt;
+
+&lt;p&gt;​               &lt;script type=&quot;math/tex&quot;&gt;Error(E) = \sum(\hat{y_i}-y_i)^2&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;This technique is called the &lt;strong&gt;Least Squares technique&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;By the definition of linear regression, we can replace the &lt;script type=&quot;math/tex&quot;&gt;y_i&lt;/script&gt; with &lt;script type=&quot;math/tex&quot;&gt;b_0 + b_1X_i&lt;/script&gt;,&lt;/p&gt;
+
+&lt;p&gt;​               &lt;script type=&quot;math/tex&quot;&gt;E = \sum(\hat{y_i} - (b_0 + b_1X_i))&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;​                   &lt;em&gt;or&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;​               &lt;script type=&quot;math/tex&quot;&gt;E =  \sum(\hat{y_i} - b_0 - b_1X_i)&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, our  immediate aim is to identify the ideal values for the parameters &lt;script type=&quot;math/tex&quot;&gt;b_0&lt;/script&gt; and  &lt;script type=&quot;math/tex&quot;&gt;b_1&lt;/script&gt;, such that the value of &lt;em&gt;Error&lt;/em&gt; function is minimized as much as possible. Let’s derive that.&lt;/p&gt;
+
+&lt;h2 id=&quot;derivation-of-least-squares-estimates&quot;&gt;Derivation of Least squares estimates&lt;/h2&gt;
+
+&lt;p&gt;What’s the first thing that comes to our mind when someone says maxima/minima of a function? — you guessed it — &lt;em&gt;Partial Derivates&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;To find the relative minima of a function, let’s take the derivate of &lt;em&gt;Error function&lt;/em&gt; on both the parameters &lt;script type=&quot;math/tex&quot;&gt;b_0&lt;/script&gt; &amp;amp; &lt;script type=&quot;math/tex&quot;&gt;b_1&lt;/script&gt; and equate them to zero.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: For the sake of simplicity, I’ll represent the &lt;script type=&quot;math/tex&quot;&gt;\sum_{i=1}^{n}&lt;/script&gt; as just &lt;script type=&quot;math/tex&quot;&gt;\sum&lt;/script&gt; from hereon.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;(i) Derivative of E on &lt;script type=&quot;math/tex&quot;&gt;b_1&lt;/script&gt;:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;=&gt; \frac{\partial{E}}{\partial{b_1}} \equiv 2 \sum(y_i - b_0 - b_1X_i)(-1) = 0 \\[1cm]
+=&gt; \sum(y_i) - \sum(b_0) - \sum(b_1X_i) = 0 \\[1cm]
+=&gt;  b_0 = \frac{\sum(y_i) - b_1\sum(X_i)}{n}    \longrightarrow (i)&lt;/script&gt;
+
+&lt;p&gt;&lt;strong&gt;(ii) Derivative of E on &lt;script type=&quot;math/tex&quot;&gt;b_0&lt;/script&gt;:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;=&gt; \frac{\partial{E}}{\partial{b_0}} \equiv 2 \sum(y_i - b_0 - b_1X_i)(X_i) = 0 \\[1cm]
+
+=&gt; \sum(X_iy_i) - b_0\sum(X_i) - b_1\sum(X_i^2) = 0 \\[1cm]
+
+Substituting\ the\ value\ of\ b_0\ from\ (i),  \\[1cm]
+=&gt; \sum(X_iy_i) - \frac{\sum(y_i) - b_1\sum(X_i)}{n}\sum(X_i) - b_1\sum(X_i^2) = 0 \\[1cm]
+
+Multiplying\ with\ ‘n‘\ on\ both\ sides, and\ rearranging\ things\ a\ bit,\\[1cm]
+
+=&gt; (n-1) \sum(X_iy_i) - (n-1)b_1\sum(X_i^2) = 0\\[1cm]
+
+Dividing\ with\ (n-1)\ on\ both\ sides\ and\ solving\ for\ b_1,\ we\ get,\\[1cm]
+
+ {b_1 = \frac{\sum(X_iy_i)}{\sum(X_i^2)} = \frac{\bar{xy}}{\bar{x^2}}} \\[1cm]&lt;/script&gt;
+
+&lt;p&gt;Now, by substituting this value of &lt;script type=&quot;math/tex&quot;&gt;b_1&lt;/script&gt; in the &lt;script type=&quot;math/tex&quot;&gt;(i)&lt;/script&gt;, we can get the value of &lt;script type=&quot;math/tex&quot;&gt;b_0&lt;/script&gt;,&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;b_0 = \frac{\sum(y_i) - \frac{\sum(X_iy_i)}{\sum(X_i^2)}\sum(X_i)}{n} \\[1cm]
+    
+{b_0 = \frac{(\sum(X_i)\sum(y_i)) - \sum(X_iy_i)}{n \sum(X_i)} = \frac{\bar{x}\bar{y}- \bar{xy}}{n\bar{x}}}&lt;/script&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Thus, the &lt;em&gt;best fitting line&lt;/em&gt; in simple linear regression is &lt;script type=&quot;math/tex&quot;&gt;y = b_0 + b_1X&lt;/script&gt;,  where, 
+&lt;script type=&quot;math/tex&quot;&gt;b_1 = \frac{\bar{xy}}{\bar{x^2}}&lt;/script&gt; and &lt;script type=&quot;math/tex&quot;&gt;b_0 = \frac{\bar{x}\bar{y}- \bar{xy}}{n\bar{x}}&lt;/script&gt; .&lt;/p&gt;</content><author><name>Vishwa</name></author><category term="machine-learning" /><category term="rawml" /><summary type="html">Inside the Post</summary></entry><entry><title type="html">Choosing a port for your new TCP server</title><link href="https://v1shwa.github.io/blog/generating-a-random-port-linux/" rel="alternate" type="text/html" title="Choosing a port for your new TCP server" /><published>2017-08-13T00:00:00+05:30</published><updated>2017-08-13T00:00:00+05:30</updated><id>https://v1shwa.github.io/blog/generating-a-random-port-linux</id><content type="html" xml:base="https://v1shwa.github.io/blog/generating-a-random-port-linux/">&lt;p&gt;Every time I create a new server, One of most painful tasks I need to worry about is choosing the right port for the server. Although every internet system has a space for 65535 TCP ports, with the increasing amount of applications, most of the ports are already occupied either &lt;a href=&quot;https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml&quot; target=&quot;_blank&quot;&gt;officially&lt;/a&gt; or &lt;a href=&quot;https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers&quot; target=&quot;_blank&quot;&gt;unofficially&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;That leaves us with the question of how do you come up with a &lt;em&gt;free&lt;/em&gt; port number for our server. Well, before we jump right into the solution, here are some ground rules we can follow:&lt;/p&gt;
 
