@@ -19,7 +19,7 @@
 
 
 
-<meta name="description" content="Basics and Implementation of Linear Regression in Python">
+<meta name="description" content="Basics and mathematical proof of Simple Linear Regression">
 
 
 
@@ -35,13 +35,13 @@
 
 
 
-  <meta property="og:description" content="Basics and Implementation of Linear Regression in Python">
+  <meta property="og:description" content="Basics and mathematical proof of Simple Linear Regression">
 
 
 
   <meta name="twitter:site" content="@v1shwa">
   <meta name="twitter:title" content="Understanding the math behind Linear Regression">
-  <meta name="twitter:description" content="Basics and Implementation of Linear Regression in Python">
+  <meta name="twitter:description" content="Basics and mathematical proof of Simple Linear Regression">
   <meta name="twitter:url" content="https://v1shwa.github.io/blog/understanding-the-math-of-linear-regression/">
 
   <meta name="twitter:card" content="summary">
@@ -196,7 +196,7 @@
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Linear regression is an almost <a href="https://en.wikipedia.org/wiki/Regression_analysis#History">200 year old</a> simple but one of most useful statistical models. It is used to analyze the relationship between two or more continous variables in a dataset.</p>
+<p>Linear regression is an almost <a href="https://en.wikipedia.org/wiki/Regression_analysis#History">200 years old</a> simple but one of the most useful statistical models. It is used to analyze the relationship between two or more continuous variables in a dataset.</p>
 
 <p>The goal of this article is to understand what linear regression is &amp; all the math that powers the model.</p>
 
@@ -212,11 +212,11 @@
 
 <ul>
   <li><script type="math/tex">y</script> is called as the <strong>dependent</strong> or <strong>output/target</strong> variable,</li>
-  <li><script type="math/tex">X</script> is called as <strong>independent</strong> variable or <strong>predictor</strong> or <strong>input</strong> variable,</li>
+  <li><script type="math/tex">X</script> is called as the <strong>independent</strong> variable or <strong>predictor</strong> or <strong>input</strong> variable,</li>
   <li><script type="math/tex">b_0, b_1</script> are the unknown constants called as <em>Y-intercept</em> and <em>slope</em> respectively, which we’ll have to estimate.</li>
 </ul>
 
-<p><strong><u>Note</u></strong>: If we have more than 1 predictors in the model, then this would be called <strong>Multiple Linear Regression</strong> and it’s equation would be like this,</p>
+<p><strong><u>Note</u></strong>: If we have more than 1 predictors in the model, then this would be called <strong>Multiple Linear Regression</strong> and its equation would be like this,</p>
 
 <p>​   <script type="math/tex">y = b_0 + b_1X_1 + b_2X_2 + b_3X_3 + ...</script></p>
 
@@ -224,7 +224,7 @@
 
 <p><img src="https://i.imgur.com/qlc2Hu4.png" alt="" /></p>
 
-<p>In practical world, it’s nearly impossible to find the ideal regression line that covers all the data points (see picture above). So, instead, what we do is, identify the best equation that covers all the points with least errors . We call this line, the <strong>best fitting line</strong>.</p>
+<p>In a practical world, it’s nearly impossible to find the ideal regression line that covers all the data points (see picture above). So, instead, what we do is, identify the best equation that covers all the points with least errors. We call this line, the <strong>best fitting line</strong>.</p>
 
 <p>To calculate the error, we take the sum of difference between the <em>estimated target values <script type="math/tex">(\hat{y_i})</script></em> and <em>actual target values<script type="math/tex">(y_i)</script></em> for all points in the dataset. To normalize the negative errors, we’ll consider the squares of the errors. Now, we can formulate the error as,</p>
 
@@ -232,7 +232,7 @@
 
 <p>This technique is called the <strong>Least Squares technique</strong>.</p>
 
-<p>By the definition of linear regression, we can replace the <script type="math/tex">y_i</script> with <script type="math/tex">b_0 + b_1X_i</script>,</p>
+<p>From the definition of linear regression, we can replace the <script type="math/tex">y_i</script> with <script type="math/tex">b_0 + b_1X_i</script>,</p>
 
 <p>​               <script type="math/tex">E = \sum(\hat{y_i} - (b_0 + b_1X_i))</script></p>
 
@@ -265,24 +265,27 @@
 Substituting\ the\ value\ of\ b_0\ from\ (i),  \\[1cm]
 => \sum(X_iy_i) - \frac{\sum(y_i) - b_1\sum(X_i)}{n}\sum(X_i) - b_1\sum(X_i^2) = 0 \\[1cm]
 
-Multiplying\ with\ ‘n‘\ on\ both\ sides, and\ rearranging\ things\ a\ bit,\\[1cm]
+Multiplying\ with\ ‘n‘\ on\ both\ sides, \\[1cm]
 
-=> (n-1) \sum(X_iy_i) - (n-1)b_1\sum(X_i^2) = 0\\[1cm]
+=> n\sum(X_iy_i) - \sum(X_i)\sum(y_i) - nb_1\sum(X_i^2) + b_1(\sum(X_i))^2= 0\\[1cm]
 
-Dividing\ with\ (n-1)\ on\ both\ sides\ and\ solving\ for\ b_1,\ we\ get,\\[1cm]
 
- {b_1 = \frac{\sum(X_iy_i)}{\sum(X_i^2)} = \frac{\bar{xy}}{\bar{x^2}}} \\[1cm]</script>
+Solving\ for\ b_1,\ we\ get,\\[1cm]
 
-<p>Now, by substituting this value of <script type="math/tex">b_1</script> in the <script type="math/tex">(i)</script>, we can get the value of <script type="math/tex">b_0</script>,</p>
+b_1 = \frac{n\sum(X_iy_i) - \sum(X_i)\sum(y_i)}{n\sum(X_i^2) - (\sum(X_i))^2} \\[1cm]</script>
 
-<script type="math/tex; mode=display">b_0 = \frac{\sum(y_i) - \frac{\sum(X_iy_i)}{\sum(X_i^2)}\sum(X_i)}{n} \\[1cm]
+<p>Now, by substituting this value of <script type="math/tex">b_1</script> in the <script type="math/tex">(i)</script>, we can also get the value of <script type="math/tex">b_0</script>,</p>
+
+<script type="math/tex; mode=display">b_0 = \frac{\sum(y_i) - \frac{n\sum(X_iy_i) - \sum(X_i)\sum(y_i)}{n\sum(X_i^2) - (\sum(X_i))^2} \sum(X_i)}{n} \\[1cm]
+
+or,\ for\ simplicity,\ let's\ just\ keep\ it, \\[1cm]
     
-{b_0 = \frac{(\sum(X_i)\sum(y_i)) - \sum(X_iy_i)}{n \sum(X_i)} = \frac{\bar{x}\bar{y}- \bar{xy}}{n\bar{x}}}</script>
+b_0 = \frac{\sum(y_i) - b_1\sum(X_i)}{n}</script>
 
 <h2 id="conclusion">Conclusion</h2>
 
 <p>Thus, the <em>best fitting line</em> in simple linear regression is <script type="math/tex">y = b_0 + b_1X</script>,  where, 
-<script type="math/tex">b_1 = \frac{\bar{xy}}{\bar{x^2}}</script> and <script type="math/tex">b_0 = \frac{\bar{x}\bar{y}- \bar{xy}}{n\bar{x}}</script> .</p>
+<script type="math/tex">b_1 = \frac{n\sum(X_iy_i) - \sum(X_i)\sum(y_i)}{n\sum(X_i^2) - (\sum(X_i))^2}</script> and <script type="math/tex">b_0 = \frac{\sum(y_i) - b_1\sum(X_i)}{n}</script> .</p>
 
         
         <section class="page__share">
