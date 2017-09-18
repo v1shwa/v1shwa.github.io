@@ -74,7 +74,27 @@
     <!-- For all browsers -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Gochi+Hand|Heebo:100,300,400,500,700,800,900" rel="stylesheet">
     <link rel="stylesheet" href="https://v1shwa.github.io/assets/css/main.css">
+    
     <link rel="shortcut icon" type="image/x-icon" href="https://v1shwa.github.io/assets/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/assets/images/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/images/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/assets/images/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/assets/images/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/assets/images/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
+    
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/assets/images/icons/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
     <meta http-equiv="cleartype" content="on">
     <script type="text/javascript" async
       src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -209,7 +229,7 @@
     <script src="https://v1shwa.github.io/assets/js/plugins/rrssb.min.js"></script>
     <script src="https://v1shwa.github.io/assets/js/slimmenu.js"></script>
     <script src="https://v1shwa.github.io/assets/js/main.js"></script>
-
+  
     
 
 <script>
@@ -224,6 +244,18 @@
 
 
 
-
+    <script src="https://v1shwa.github.io/assets/js/manup.js"></script>
+    <script>
+      if (navigator.serviceWorker.controller) {
+        console.log('[PWA Builder] active service worker found, no need to register')
+      } else {
+        //Register the ServiceWorker
+        navigator.serviceWorker.register('sw.js', {
+          scope: './'
+        }).then(function(reg) {
+          console.log('Service worker has been registered for scope:'+ reg.scope);
+        });
+      }
+    </script>
   </body>
 </html>
