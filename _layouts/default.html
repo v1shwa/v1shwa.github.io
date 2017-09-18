@@ -33,6 +33,7 @@
     <link rel="apple-touch-icon" sizes="152x152" href="/assets/images/icons/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-icon-180x180.png">
     <link rel="icon" type="image/png" sizes="192x192"  href="/assets/images/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/images/icons/android-icon-512x512.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/assets/images/icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png">
@@ -55,9 +56,9 @@
     <div class="page__footer">
       <footer>
         <div class="page__footer-copyright">
-          <a href="https://github.com/{{ site.github.username }}" target="_blank" title="Github"><i class="fa fa-github-square fa-2x" style="color: #000000" aria-hidden="true"></i></a>
-          <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" title="Twitter"><i class="fa fa-twitter-square fa-2x" style="color: #1da1f3;" aria-hidden="true"></i></a>
-          <a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | absolute_url }}{% endif %}" target="_blank"><i class="fa fa-rss-square fa-2x" style="color: #fb9e3a;" aria-hidden="true"></i></a>
+          <a href="https://github.com/{{ site.github.username }}" target="_blank" title="Github" rel="noopener"><i class="fa fa-github-square fa-2x" style="color: #000000" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/{{ site.twitter.username }}" target="_blank" title="Twitter" rel="noopener"><i class="fa fa-twitter-square fa-2x" style="color: #1da1f3;" aria-hidden="true"></i></a>
+          <a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | absolute_url }}{% endif %}" target="_blank" title="XML Feed" rel="noopener"><i class="fa fa-rss-square fa-2x" style="color: #fb9e3a;" aria-hidden="true"></i></a>
           <i>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}</i>
         </div>
       </footer>

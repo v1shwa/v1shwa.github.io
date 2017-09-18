@@ -6,7 +6,7 @@
   "start_url": "https://v1shwa.github.io",
   "display": "standalone",
   "theme_color": "transparent",
-  "orientation": "any",
+  "orientation": "potrait",
   "background_color": "transparent",
 
  "icons": [
@@ -43,6 +43,12 @@
   {
    "src": "\/assets\/images\/icons\/android-icon-192x192.png",
    "sizes": "192x192",
+   "type": "image\/png",
+   "density": "4.0"
+  },
+  {
+   "src": "\/assets\/images\/icons\/android-icon-512x512.png",
+   "sizes": "512x512",
    "type": "image\/png",
    "density": "4.0"
   }
