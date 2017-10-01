@@ -49,11 +49,11 @@ This technique is called the **Least Squares technique**.
 
 From the definition of linear regression, we can replace the $$y_i$$ with $$b_0 + b_1X_i$$,
 
-​               $$E = \sum(\hat{y_i} - (b_0 + b_1X_i))$$
+​               $$E = \sum(\hat{y_i} - (b_0 + b_1X_i))^2$$
 
 ​                   *or*
 
-​               $$E =  \sum(\hat{y_i} - b_0 - b_1X_i)$$
+​               $$E =  \sum(\hat{y_i} - b_0 - b_1X_i)^2$$
 
 Now, our  immediate aim is to identify the ideal values for the parameters $$b_0$$ and  $$b_1$$, such that the value of *Error* function is minimized as much as possible. Let's derive that.
 
