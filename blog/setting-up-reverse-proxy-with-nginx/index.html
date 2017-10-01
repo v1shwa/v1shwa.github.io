@@ -205,31 +205,30 @@
       <section class="post__content" itemprop="text">
         <p>Here’s a quick snippet to set up Reverse proxy with nginx.</p>
 
-<div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="err">server</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="err">listen</span><span class="w"> </span><span class="err">80;</span><span class="w">
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">server</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="err">listen</span><span class="w"> </span><span class="mi">80</span><span class="err">;</span><span class="w">
     </span><span class="err">server_name</span><span class="w"> </span><span class="err">www.example.com;</span><span class="w">
-    </span><span class="err">location</span><span class="w"> </span><span class="err">/something/</span><span class="w"> </span><span class="err">{</span><span class="w">
+    </span><span class="err">location</span><span class="w"> </span><span class="err">/something/</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="err">proxy_pass_header</span><span class="w"> </span><span class="err">Authorization;</span><span class="w">
         </span><span class="err">proxy_set_header</span><span class="w">   </span><span class="err">Host</span><span class="w">      </span><span class="err">$http_host;</span><span class="w">
         </span><span class="err">proxy_set_header</span><span class="w">   </span><span class="err">X-Real-IP</span><span class="w"> </span><span class="err">$remote_addr;</span><span class="w">
         </span><span class="err">proxy_set_header</span><span class="w"> </span><span class="err">X-Forwarded-For</span><span class="w"> </span><span class="err">$proxy_add_x_forwarded_for;</span><span class="w">
         
-        </span><span class="err">Access-Control-Allow-Origin:</span><span class="w"> </span><span class="err">*</span><span class="w">
-        </span><span class="err">Access-Control-Allow-Methods:</span><span class="w"> </span><span class="err">POST,GET,PUT,DELETE</span><span class="w">
-        </span><span class="err">Access-Control-Allow-Headers:</span><span class="w"> </span><span class="err">Authorization,</span><span class="w"> </span><span class="err">Lang</span><span class="w">
+        </span><span class="err">Access-Control-Allow-Origin</span><span class="p">:</span><span class="w"> </span><span class="err">*</span><span class="w">
+        </span><span class="err">Access-Control-Allow-Methods</span><span class="p">:</span><span class="w"> </span><span class="err">POST</span><span class="p">,</span><span class="err">GET</span><span class="p">,</span><span class="err">PUT</span><span class="p">,</span><span class="err">DELETE</span><span class="w">
+        </span><span class="err">Access-Control-Allow-Headers</span><span class="p">:</span><span class="w"> </span><span class="err">Authorization</span><span class="p">,</span><span class="w"> </span><span class="err">Lang</span><span class="w">
 
-        </span><span class="err">client_max_body_size</span><span class="w"> </span><span class="err">0;</span><span class="w">
-        </span><span class="err">proxy_read_timeout</span><span class="w"> </span><span class="err">36000s;</span><span class="w">
+        </span><span class="err">client_max_body_size</span><span class="w"> </span><span class="mi">0</span><span class="err">;</span><span class="w">
+        </span><span class="err">proxy_read_timeout</span><span class="w"> </span><span class="mi">36000</span><span class="err">s;</span><span class="w">
 
-        </span><span class="err">proxy_pass</span><span class="w">         </span><span class="err">http://127.0.0.1:9968/;</span><span class="w">
+        </span><span class="err">proxy_pass</span><span class="w">         </span><span class="err">http</span><span class="p">:</span><span class="err">//</span><span class="mf">127.0</span><span class="err">.</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">9968</span><span class="err">/;</span><span class="w">
     </span><span class="p">}</span><span class="w">
     
     </span><span class="err">location</span><span class="w"> </span><span class="err">~</span><span class="w"> </span><span class="err">/\.</span><span class="w"> </span><span class="p">{</span><span class="w">
          </span><span class="err">deny</span><span class="w"> </span><span class="err">all;</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="err">}</span><span class="w">
-</span></code></pre>
-</div>
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
         
         <section class="page__share">
