@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://v1shwa.github.io/blog/setting-up-reverse-proxy-with-nginx/</loc>
-<lastmod>2017-07-24T00:00:00+05:30</lastmod>
-</url>
-<url>
-<loc>https://v1shwa.github.io/blog/generating-a-random-port-linux/</loc>
-<lastmod>2017-08-13T00:00:00+05:30</lastmod>
-</url>
-<url>
-<loc>https://v1shwa.github.io/blog/understanding-the-math-of-linear-regression/</loc>
-<lastmod>2017-09-16T00:00:00+05:30</lastmod>
-</url>
-<url>
 <loc>https://v1shwa.github.io/about/</loc>
 </url>
 <url>
@@ -26,17 +14,5 @@
 </url>
 <url>
 <loc>https://v1shwa.github.io/tags/</loc>
-</url>
-<url>
-<loc>https://v1shwa.github.io/tag/nginx/</loc>
-</url>
-<url>
-<loc>https://v1shwa.github.io/tag/linux/</loc>
-</url>
-<url>
-<loc>https://v1shwa.github.io/tag/machine-learning/</loc>
-</url>
-<url>
-<loc>https://v1shwa.github.io/tag/rawml/</loc>
 </url>
 </urlset>
